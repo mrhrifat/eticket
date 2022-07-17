@@ -26,7 +26,7 @@ const reservationHistory = (oldReservationList = [], action) => {
     return [...oldReservationList, action.payload];
   } else if (action.type === "CANCEL_BOOKING") {
     return oldReservationList.filter((record) => {
-      return record !== action.payload.name;
+      return record.name !== action.payload.name;
     });
   }
   return oldReservationList;
@@ -59,5 +59,3 @@ const centralStore = combineReducers({
 });
 
 const store = createStore(centralStore);
-
-
