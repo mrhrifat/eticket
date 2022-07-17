@@ -39,4 +39,16 @@ const cancellationHistory = (oldCancellationList = [], action) => {
   return oldCancellationList;
 };
 
+const accounting = (totalMoney = 100, action) => {
+  if (action.type === "NEW_BOOKING") {
+    return totalMoney + action.payload.amount;
+  } else if (action.type === "CANCEL_BOOKING") {
+    return totalMoney - action.payload.refundAmount;
+  }
+  return totalMoney;
+};
+
 // Redux Store
+console.log(Redux);
+const { combineReducers, createStore } = Redux;
+
