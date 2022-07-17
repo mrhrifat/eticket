@@ -52,3 +52,12 @@ const accounting = (totalMoney = 100, action) => {
 console.log(Redux);
 const { combineReducers, createStore } = Redux;
 
+const centralStore = combineReducers({
+  accounting: accounting,
+  reservationHistory: reservationHistory,
+  cancellationHistory: cancellationHistory,
+});
+
+const store = createStore(centralStore);
+
+
